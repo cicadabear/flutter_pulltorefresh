@@ -9,6 +9,7 @@ import 'package:flutter/widgets.dart';
 
 typedef void OnRefresh(bool up);
 typedef void OnOffsetChange(bool up, double offset);
+typedef void OnInitialized();
 typedef Widget IndicatorBuilder(BuildContext context, int mode);
 
 const int default_completeDuration = 800;

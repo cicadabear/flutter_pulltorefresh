@@ -41,6 +41,13 @@ class _Example1State extends State<Example1> {
     super.initState();
   }
 
+  void _onRefresherInitialized(){
+    _refreshController.scrollController.addListener((){
+      print(_refreshController.scrollController.offset);
+    });
+  }
+
+
   Widget _headerCreate(BuildContext context, int mode) {
     return new ClassicIndicator(
       mode: mode,
@@ -61,6 +68,7 @@ class _Example1State extends State<Example1> {
             enablePullDown: true,
             enablePullUp: true,
             controller: _refreshController,
+            onInitialized: _onRefresherInitialized,
             onRefresh: (up) {
               if (up)
                 new Future.delayed(const Duration(milliseconds: 2009))
